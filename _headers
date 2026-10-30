@@ -1,0 +1,7 @@
+# Netlify: cache images and fonts for a week; always re-check pages and config.js
+/assets/img/*
+  Cache-Control: public, max-age=604800
+/assets/js/config.js
+  Cache-Control: no-cache
+/*.html
+  Cache-Control: no-cache
