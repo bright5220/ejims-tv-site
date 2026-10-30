@@ -358,3 +358,6 @@ footer .credit a:hover { border-color: var(--pink); }
 .honour h3 { font-size: 1.15rem; margin: 2px 0 4px; }
 .honour p { color: var(--muted); margin: 0; font-size: .95rem; }
 @media (max-width: 400px) { .honours { grid-template-columns: 1fr; } }
+.partner-media .initials { width: 100%; height: 100%; display: grid; place-items: center; font-family: var(--font-display); font-size: clamp(3.5rem, 9vw, 5rem); color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,.3); }
+.partner-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.partner-actions .btn { padding: 11px 20px; font-size: .95rem; }
