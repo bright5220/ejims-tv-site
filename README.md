@@ -27,8 +27,8 @@ On GitHub you can do this from your phone: open the file, tap the pencil icon, e
 1. Unzip `ejims-tv-site.zip` so you have the `ejims-tv-site` folder.
 2. Log in at https://app.netlify.com (the same account as your portfolio).
 3. Go to **Sites**, then **Add new site**, then **Deploy manually**, and drag the `ejims-tv-site` folder onto the page.
-4. Open **Site configuration**, then **Change site name**, and type `ejimstv`. The site is now at https://ejimstv.netlify.app.
-   If that name is taken, pick another one and tell Claude, because the link previews use this address.
+4. Open **Site configuration**, then **Change site name**, and type `ejimstv`. The site is at https://ejimstv.netlify.app.
+5. Custom domain: the site's main address is **https://ejims.tv** (bought on Namecheap, 31 Oct 2026). In Netlify go to **Domain management**, then **Add a domain**, and enter `ejims.tv`. In Namecheap, under **Advanced DNS**, add the records Netlify shows (or switch Nameservers to the Netlify ones). Netlify adds free HTTPS once DNS is working. Link previews and the sitemap use https://ejims.tv.
 
 **Updating later:** change the file (for example `assets/js/config.js`), then in Netlify open the site, go to **Deploys**, and drag the whole folder in again. It's live within seconds.
 
@@ -38,7 +38,7 @@ Every page has preview tags, so sharing a link on WhatsApp, X or Instagram shows
 ## Visitor stats (optional, free)
 The site uses Cloudflare Web Analytics, which is free, doesn't use cookies, and needs no cookie banner.
 1. Sign up at https://dash.cloudflare.com (free plan).
-2. Go to **Analytics & Logs**, then **Web Analytics**, then **Add a site**. Enter `ejimstv.netlify.app` and choose the manual setup (JS snippet).
+2. Go to **Analytics & Logs**, then **Web Analytics**, then **Add a site**. Enter `ejims.tv` and choose the manual setup (JS snippet).
 3. Copy the token from the snippet (the long code after `"token":`).
 4. Paste it into `assets/js/config.js` as `analyticsToken: "your-token"`, then re-upload the folder to Netlify.
 Visits, top pages, countries and devices appear in the Cloudflare dashboard within a few minutes.
