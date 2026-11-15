@@ -1,62 +1,66 @@
 # Ejims TV website
 
-Static site (plain HTML, CSS and JavaScript). No build step needed.
+Plain HTML, CSS and JavaScript, hosted free on GitHub Pages at https://ejims.tv (repo `bright5220/ejims-tv-site`, `main` branch).
+
+## The settings file
+Everything you are likely to change lives in one file: `assets/js/config.js`.
+On GitHub (phone or laptop): open the file, tap the pencil icon, edit, then **Commit changes**. The live site updates in about a minute.
+
+### Changing the WhatsApp TV number
+```js
+whatsapp: "2348050253052",            // digits only, country code first, no + or spaces
+whatsappDisplay: "+234 805 025 3052", // how the number is written on the site
+```
+Every WhatsApp button, link and number on the site follows these two lines.
+
+### Days without banting Ronaldo
+The counter is on the GOATs page, with a small badge on the homepage. It counts up by itself every midnight, Nigerian time.
+```js
+ronaldoStreak: {
+  start: "2026-11-08",  // Day 1, written YEAR-MONTH-DAY
+  relapsedOn: "",       // empty while the streak is alive
+  pastStreaks: [],      // days lasted in earlier attempts
+  show: true,           // false hides the counter everywhere
+},
+```
+- **He cracked:** put the date in `relapsedOn`, for example `relapsedOn: "2026-12-01"`. The card turns red, says "Streak over" and shows how many days he lasted.
+- **He starts again:** add the days he lasted to `pastStreaks` (for example `[22]`), change `start` to the new Day 1, and set `relapsedOn` back to `""`. The longest run is shown as the record to beat.
+
+### Audience numbers
+`instagramFollowers`, `xFollowers`, `topPostLikes` and `playlistSaves` feed the stats on the homepage and Brands page. Type plain numbers; the site rounds them (20301 shows as 20.3K+).
+
+### Best of Ejims TV
+The `bestOf` list holds the Instagram posts shown on the homepage. Each one has a title, a likes figure and the post link. Copy a line to add a post, delete a line to remove one.
+
+### Dr. Messi's goals
+Change `messiGoals: 937` to the new total.
+
+### Spotify playlist and song of the week
+`playlistSaves`, `playlistSongs` and `playlistHours` feed the numbers on the Music page. `songOfTheWeek` holds the Spotify song link, title, artist and a short note; set the link to `""` to hide it.
+
+## Fun features
+- **GOAT quiz** on the GOATs page: five random questions each time, with a score to share on WhatsApp.
+- **Predict the relapse** inside the Ronaldo counter: each choice opens WhatsApp to the TV number with the guess filled in.
+- **GOAT fact of the day** changes by itself every midnight.
+- **Hidden surprise:** tap the big logo on the Home or About page five times.
+- **Save contact** on the Home and Contact pages downloads a contact card with the number from the settings file.
+The quiz questions and daily facts are near the middle of `assets/js/main.js` (look for `BANK` and `FACTS`).
+
+## Visitor stats
+The site uses PostHog (free plan, no cookies). It counts visits and taps on the WhatsApp, brand and social buttons, so you can show advertisers real numbers. View them at https://eu.posthog.com. To switch stats off, set `posthogKey: ""`.
 
 ## Pages
-- `index.html` Home, with the Join WhatsApp TV button
+- `index.html` Home
 - `about.html` Bio and timeline
 - `music.html` Spotify playlist
-- `brands.html` Endorsed brands (placeholder cards for now) and advertiser info
-- `goats.html` The GOATs: Dr. Messi and Steph Curry, bios and achievements (photos load from Wikimedia Commons)
+- `brands.html` Endorsed brands and advertiser info
+- `goats.html` The GOATs: Dr. Messi, Steph Curry and the Ronaldo counter
 - `contact.html` Socials and a form that opens WhatsApp with the message filled in
 
-Shared styles are in `assets/css/style.css`, all animation code in `assets/js/main.js`.
+Shared styles are in `assets/css/style.css`, all behaviour in `assets/js/main.js`.
 
-## Changing the WhatsApp TV number
-The number lives in one place: `assets/js/config.js`. Change these two lines and every WhatsApp button, link and number on the site updates:
-
-```js
-whatsapp: "2348050253052",           // digits only, country code first, no + or spaces
-whatsappDisplay: "+234 805 025 3052", // how the number is written on the site
-```
-
-Example for a new number 0812 345 6789: `whatsapp: "2348123456789"` and `whatsappDisplay: "+234 812 345 6789"`.
-On GitHub you can do this from your phone: open the file, tap the pencil icon, edit, then Commit. The live site updates in about a minute.
-
-## Go live on Netlify (free)
-1. Unzip `ejims-tv-site.zip` so you have the `ejims-tv-site` folder.
-2. Log in at https://app.netlify.com (the same account as your portfolio).
-3. Go to **Sites**, then **Add new site**, then **Deploy manually**, and drag the `ejims-tv-site` folder onto the page.
-4. Open **Site configuration**, then **Change site name**, and type `ejimstv`. The site is at https://ejimstv.netlify.app.
-5. Custom domain: the site's main address is **https://ejims.tv** (bought on Namecheap, 31 Oct 2026). In Netlify go to **Domain management**, then **Add a domain**, and enter `ejims.tv`. In Namecheap, under **Advanced DNS**, add the records Netlify shows (or switch Nameservers to the Netlify ones). Netlify adds free HTTPS once DNS is working. Link previews and the sitemap use https://ejims.tv.
-
-**Updating later:** change the file (for example `assets/js/config.js`), then in Netlify open the site, go to **Deploys**, and drag the whole folder in again. It's live within seconds.
+## Updating the site
+Upload changed files through GitHub: **Add file**, then **Upload files**, drag the files or folders in, and **Commit changes**. Keep the same folder layout.
 
 ## Link previews
-Every page has preview tags, so sharing a link on WhatsApp, X or Instagram shows `assets/img/og-image.jpg` with the title and bio. WhatsApp caches previews, so a link shared before launch may show the old preview for a while.
-
-## Visitor stats (optional, free)
-The site uses Cloudflare Web Analytics, which is free, doesn't use cookies, and needs no cookie banner.
-1. Sign up at https://dash.cloudflare.com (free plan).
-2. Go to **Analytics & Logs**, then **Web Analytics**, then **Add a site**. Enter `ejims.tv` and choose the manual setup (JS snippet).
-3. Copy the token from the snippet (the long code after `"token":`).
-4. Paste it into `assets/js/config.js` as `analyticsToken: "your-token"`, then re-upload the folder to Netlify.
-Visits, top pages, countries and devices appear in the Cloudflare dashboard within a few minutes.
-
-## Changing the WhatsApp TV number
-The number lives in one place: `assets/js/config.js`. Change these two lines and every WhatsApp button, link and number on the site updates:
-
-```js
-whatsapp: "2348050253052",           // digits only, country code first, no + or spaces
-whatsappDisplay: "+234 805 025 3052", // how the number is written on the site
-```
-
-Example for a new number 0812 345 6789: `whatsapp: "2348123456789"` and `whatsappDisplay: "+234 812 345 6789"`.
-On GitHub you can do this from your phone: open the file, tap the pencil icon, edit, then Commit. The live site updates in about a minute.
-
-## Go live for free
-**Netlify:** drag this whole folder onto https://app.netlify.com/drop.
-**GitHub Pages:** push these files to a repo, then Settings → Pages → Deploy from branch → `main` / root.
-
-## Updating Messi's goal count
-In `assets/js/config.js`, change `messiGoals: 936` to the new total. The GOATs page updates automatically.
+Every page has preview tags, so sharing a link on WhatsApp, X or Instagram shows a picture with the title. WhatsApp caches previews, so an old preview can linger for a while.

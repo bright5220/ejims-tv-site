@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ejims.tv/</loc></url>
-  <url><loc>https://ejims.tv/about.html</loc></url>
-  <url><loc>https://ejims.tv/music.html</loc></url>
-  <url><loc>https://ejims.tv/brands.html</loc></url>
-  <url><loc>https://ejims.tv/goats.html</loc></url>
-  <url><loc>https://ejims.tv/contact.html</loc></url>
+  <url><loc>https://ejims.tv/</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://ejims.tv/about.html</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://ejims.tv/music.html</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://ejims.tv/brands.html</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://ejims.tv/goats.html</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://ejims.tv/contact.html</loc><lastmod>2026-11-14</lastmod></url>
 </urlset>
